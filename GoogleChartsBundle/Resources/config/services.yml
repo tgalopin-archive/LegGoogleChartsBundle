@@ -1,0 +1,6 @@
+services:
+    leg_charts:
+        class: 'Leg\GoogleChartsBundle\Twig\Extension'
+        arguments: [@kernel]
+        tags:
+            - { name: twig.extension }
