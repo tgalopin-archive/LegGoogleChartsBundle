@@ -9,10 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Leg\GoogleChartsBundle;
+namespace Leg\GoogleChartsBundle\Charts\Gallery\Bar;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Leg\GoogleChartsBundle\Charts\Gallery\BarChart;
 
-class LegGoogleChartsBundle extends Bundle
+class VerticalGroupedChart extends BarChart
 {
+	protected $type = 'bvg';
 }

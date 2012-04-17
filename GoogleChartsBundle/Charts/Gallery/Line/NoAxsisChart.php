@@ -9,10 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Leg\GoogleChartsBundle;
+namespace Leg\GoogleChartsBundle\Charts\Gallery\Line;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Leg\GoogleChartsBundle\Charts\Gallery\LineChart;
 
-class LegGoogleChartsBundle extends Bundle
+class NoAxsisChart extends LineChart
 {
+	protected $type = 'ls';
 }

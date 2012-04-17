@@ -9,10 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Leg\GoogleChartsBundle;
+namespace Leg\GoogleChartsBundle\Charts\Gallery\Radar;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Leg\GoogleChartsBundle\Charts\Gallery\RadarChart;
 
-class LegGoogleChartsBundle extends Bundle
+class CurvedChart extends RadarChart
 {
+	protected $type = 'rs';
 }

@@ -9,10 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Leg\GoogleChartsBundle;
+namespace Leg\GoogleChartsBundle\Charts\Gallery\Pie;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Leg\GoogleChartsBundle\Charts\Gallery\PieChart;
 
-class LegGoogleChartsBundle extends Bundle
+class ThreeDimensionsChart extends PieChart
 {
+	protected $type = 'p3';
 }

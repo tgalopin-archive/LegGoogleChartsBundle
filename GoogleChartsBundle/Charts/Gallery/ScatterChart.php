@@ -9,10 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Leg\GoogleChartsBundle;
+namespace Leg\GoogleChartsBundle\Charts\Gallery;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Leg\GoogleChartsBundle\Charts\BaseChart;
 
-class LegGoogleChartsBundle extends Bundle
+class ScatterChart extends AbstractChart
 {
+	protected $type = 's';	
 }
