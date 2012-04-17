@@ -4,20 +4,22 @@ namespace Leg\GoogleChartsBundle\Twig;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 use Symfony\Component\HttpKernel\KernelInterface;
 
+use Leg\GoogleChartsBundle\Charts\ChartsManager;
+
 class LegGoogleChartsExtension extends \Twig_Extension
 {
 	/**
-	 * Symfony kernel
-	 * @var KernelInterface
+	 * Charts manager
+	 * @var ChartsManager
 	 */
-	protected $kernel;
+	protected $charts_manager;
 	
 	/**
-	 * @param KernelInterface $kernel
+	 * @param ChartsManager $charts_manager
 	 */
-	public function __construct(KernelInterface $kernel)
+	public function __construct(ChartsManager $charts_manager)
 	{
-		$this->kernel = $kernel;
+		$this->charts_manager = $charts_manager;
 	}
 	
 	/**
@@ -36,8 +38,8 @@ class LegGoogleChartsExtension extends \Twig_Extension
 	public function getFunctions()
 	{
 		return array(
-			'leg_chart_get' => new \Twig_Function_Method($this, 'get'),
-			'leg_chart_render' => new \Twig_Function_Method($this, 'render',
+			'leg_google_charts_get' => new \Twig_Function_Method($this, 'get'),
+			'leg_google_charts_render' => new \Twig_Function_Method($this, 'render',
 										array('is_safe' => array('html'))),
 		);
 	}
@@ -46,38 +48,17 @@ class LegGoogleChartsExtension extends \Twig_Extension
 	 * Get a chart
 	 * @param string $menu
 	 */
-	public function get($name, $driver = 'php')
+	public function get($name)
 	{
-		$driver = 'Leg\\GoogleChartsBundle\\Drivers\\'.
-					ucfirst($driver).'Driver';
-		
-		if(! class_exists($driver))
-		{
-			throw new RuntimeException(sprintf('
-				%s does not exists.',
-				$driver
-			));
-		}
-		
-		$driver = new $driver($this->kernel);
-		
-		return $driver->import($name);
+		return $this->charts_manager->get($name);
 	}
 	
 	/**
 	 * Display a chart
 	 * @param string $menu
 	 */
-	public function render($name, $driver = 'php')
+	public function render($name)
 	{
-		list($bundleName, $dirName, $className) = explode(':', $name);
-		
-		$chart = $this->get($name, $driver);
-
-		return '<img src="'.$chart->build().
-				'" alt="'.$className.
-				'" title="'.$className.
-				'" id="'.strtolower($className).
-				'" class="chart '.strtolower($chart->getType()).'" />';
+		return $this->charts_manager->render($name);
 	}
 }

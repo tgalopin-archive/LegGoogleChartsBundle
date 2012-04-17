@@ -11,7 +11,10 @@
 
 namespace Leg\GoogleChartsBundle\Drivers;
 
+use Symfony\Component\Yaml\Yaml;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
+
 use Leg\GoogleChartsBundle\Drivers\DriverInterface;
 
 /**
@@ -21,24 +24,38 @@ use Leg\GoogleChartsBundle\Drivers\DriverInterface;
  */
 class YmlFileDriver implements DriverInterface
 {
+	/**
+	 * Kernel
+	 * @var KernelInterface
+	 */
 	protected $kernel;
 	
+	/**
+	 * Constructor.
+	 * @param KernelInterface $kernel
+	 */
 	public function __construct(KernelInterface $kernel)
 	{
 		$this->kernel = $kernel;
 	}
 	
+	/**
+	 * Import a chart from a resource.
+	 * 
+	 * @param string $resource
+	 * @return Leg\GoogleChartsBundle\Charts\ChartInterface
+	 */
 	public function import($resource)
 	{
-		list($bundleName, $dirName, $fileName) = explode(':', $name);
+		list($bundleName, $fileName) = explode(':', $resource);
 		
 		$bundle = $this->kernel->getBundle($bundleName);
-		$file = $bundle->getPath().'/'.$dirName.'/'.$fileName.'.yml';
+		$file = $bundle->getPath().'/Chart/'.$fileName;
 		
 		if(! is_file($file))
 		{
-			throw new RuntimeException(sprintf('
-				The file "%s" does not exist.',
+			throw new RuntimeException(sprintf(
+				'The file "%s" does not exist.',
 				$file
 			));
 		}
@@ -52,7 +69,7 @@ class YmlFileDriver implements DriverInterface
 			OR ! isset($chartOptions['datas']))
 		{
 			throw new RuntimeException(sprintf('
-				The YAML charts driver has not found width, height or datas in %s',
+				The YAML charts driver has not found width, height or datas in "%s"',
 				$file
 			));
 		}
@@ -60,7 +77,7 @@ class YmlFileDriver implements DriverInterface
 		if(	! isset($chartOptions['extends']))
 		{
 			throw new RuntimeException(sprintf('
-				The YAML charts driver has not found extended chart class in %s',
+				The YAML charts driver has not found extended chart class in "%s"',
 				$file
 			));
 		}
@@ -68,17 +85,27 @@ class YmlFileDriver implements DriverInterface
 		if(! class_exists($chartOptions['extends']))
 		{
 			throw new RuntimeException(sprintf('
-				The YAML charts driver has not found %s in %s',
+				The YAML charts driver has not found %s in "%s"',
 				$chartOptions['extends'], $file
 			));
 		}
 				
 		$chart = new $chartOptions['extends']();
+		
+		unset($chartOptions['extends']);
+		
 		$chart->setOptions($chartOptions);
 		
 		return $chart;
 	}
 	
+	/**
+	 * Returns true if this class supports the given resource.
+	 *
+	 * @param mixed  $resource A resource
+	 *
+	 * @return Boolean True if this class supports the given resource, false otherwise
+	 */
 	public function supports($resource)
 	{
 		return is_string($resource) && 'yml' === pathinfo($resource, PATHINFO_EXTENSION);

@@ -16,7 +16,7 @@ use Symfony\Component\HttpKernel\KernelInterface;
 interface DriverInterface
 {
 	/**
-	 * Constructor
+	 * Constructor.
 	 * @param KernelInterface $kernel
 	 */
 	public function __construct(KernelInterface $kernel);

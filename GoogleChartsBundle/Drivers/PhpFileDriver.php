@@ -11,7 +11,9 @@
 
 namespace Leg\GoogleChartsBundle\Drivers;
 
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
+
 use Leg\GoogleChartsBundle\Drivers\DriverInterface;
 
 /**
@@ -21,15 +23,31 @@ use Leg\GoogleChartsBundle\Drivers\DriverInterface;
  */
 class PhpFileDriver implements DriverInterface
 {
+	/**
+	 * Kernel
+	 * @var KernelInterface
+	 */
 	protected $kernel;
 	
+	/**
+	 * Constructor.
+	 * @param KernelInterface $kernel
+	 */
 	public function __construct(KernelInterface $kernel)
 	{
 		$this->kernel = $kernel;
 	}
 	
+	/**
+	 * Import a chart from a resource.
+	 * 
+	 * @param string $resource
+	 * @return Leg\GoogleChartsBundle\Charts\ChartInterface
+	 */
 	public function import($resource)
 	{
+		$resource = preg_replace('#\.php$#i', '', $resource);
+		
 		list($bundleName, $className) = explode(':', $resource);
 		
 		$bundle = $this->kernel->getBundle($bundleName);
@@ -48,6 +66,13 @@ class PhpFileDriver implements DriverInterface
 		return new $class();
 	}
 	
+	/**
+	 * Returns true if this class supports the given resource.
+	 *
+	 * @param mixed  $resource A resource
+	 *
+	 * @return Boolean True if this class supports the given resource, false otherwise
+	 */
 	public function supports($resource)
 	{
 		return is_string($resource) && 'php' === pathinfo($resource, PATHINFO_EXTENSION);

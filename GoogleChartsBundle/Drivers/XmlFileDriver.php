@@ -11,7 +11,9 @@
 
 namespace Leg\GoogleChartsBundle\Drivers;
 
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
+
 use Leg\GoogleChartsBundle\Drivers\DriverInterface;
 
 /**
@@ -21,24 +23,38 @@ use Leg\GoogleChartsBundle\Drivers\DriverInterface;
  */
 class XmlFileDriver implements DriverInterface
 {
+	/**
+	 * Kernel
+	 * @var KernelInterface
+	 */
 	protected $kernel;
 	
+	/**
+	 * Constructor.
+	 * @param KernelInterface $kernel
+	 */
 	public function __construct(KernelInterface $kernel)
 	{
 		$this->kernel = $kernel;
 	}
 	
+	/**
+	 * Import a chart from a resource.
+	 * 
+	 * @param string $resource
+	 * @return Leg\GoogleChartsBundle\Charts\ChartInterface
+	 */
 	public function import($resource)
 	{
-		list($bundleName, $dirName, $fileName) = explode(':', $name);
+		list($bundleName, $fileName) = explode(':', $resource);
 		
 		$bundle = $this->kernel->getBundle($bundleName);
-		$file = $bundle->getPath().'/'.$dirName.'/'.$fileName.'.xml';
+		$file = $bundle->getPath().'/Chart/'.$fileName;
 		
 		if(! is_file($file))
 		{
-			throw new RuntimeException(sprintf('
-				The file "%s" does not exist.',
+			throw new RuntimeException(sprintf(
+				'The file "%s" does not exist.',
 				$file
 			));
 		}
@@ -83,8 +99,15 @@ class XmlFileDriver implements DriverInterface
 		return $chart;
 	}
 	
+	/**
+	 * Returns true if this class supports the given resource.
+	 *
+	 * @param mixed  $resource A resource
+	 *
+	 * @return Boolean True if this class supports the given resource, false otherwise
+	 */
 	public function supports($resource)
 	{
-		return is_string($resource) && 'php' === pathinfo($resource, PATHINFO_EXTENSION);
+		return is_string($resource) && 'xml' === pathinfo($resource, PATHINFO_EXTENSION);
 	}
 }
