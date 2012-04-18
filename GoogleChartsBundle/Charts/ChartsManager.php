@@ -38,7 +38,56 @@ class ChartsManager
 	 */
 	public function addDriver(DriverInterface $driver)
 	{
-		$this->drivers->add($driver);
+		return $this->drivers->set(
+			implode('', array_slice(explode('\\', get_class($driver)), -1)),
+			$driver
+		);
+	}
+	
+	/**
+	 * Remove a driver by its name or by its instance
+	 * @param mixed $driver
+	 */
+	public function removeDriver($driver)
+	{
+		if(is_object($driver) && $driver instanceof DriverInterface)
+		{
+			$driver = implode('', array_slice(explode('\\', get_class($driver)), -1));
+		}
+		elseif(is_object($driver))
+		{
+			throw new \InvalidArgumentException(sprintf(
+				'Argument 1 passed to '.__CLASS__.'::'.__METHOD__.' must implement DriverInterface.'
+			), 500);
+		}
+		
+		if(! is_string($driver))
+		{
+			throw new \InvalidArgumentException(sprintf(
+				'Argument 1 passed to '.__CLASS__.'::'.__METHOD__.' must be a string or an object (%s given).',
+				gettype($driver)
+			), 500);
+		}
+		
+		return $this->drivers->remove($driver);
+	}
+	
+	/**
+	 * Gets a driver by its name
+	 * @return DriverInterface
+	 */
+	public function getDriver($name)
+	{
+		return $this->drivers->get($name);
+	}
+	
+	/**
+	 * Gets all the loaded drivers
+	 * @return ArrayCollection
+	 */
+	public function getDrivers()
+	{
+		return $this->drivers;
 	}
 	
 	/**

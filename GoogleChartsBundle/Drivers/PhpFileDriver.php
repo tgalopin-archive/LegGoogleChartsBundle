@@ -11,8 +11,8 @@
 
 namespace Leg\GoogleChartsBundle\Drivers;
 
+use Leg\GoogleChartsBundle\Charts\ChartInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 
 use Leg\GoogleChartsBundle\Drivers\DriverInterface;
 
@@ -56,14 +56,24 @@ class PhpFileDriver implements DriverInterface
 		
 		if(! class_exists($class))
 		{
-			throw new RuntimeException(sprintf('
-				The PHP charts driver expected class "%s" to be defined in file "%s".
+			throw new \RuntimeException(sprintf(
+				'The PHP charts driver expected class "%s" to be defined in file "%s".
 				You probably have a typo in the namespace or the class name.',
 				$class, $class.'.php'
-			));
+			), 500);
 		}
 		
-		return new $class();
+		$instance = new $class();
+		
+		if(! $instance instanceof ChartInterface)
+		{
+			throw new \RuntimeException(sprintf(
+				'The class "%s" can not be used as a chart class.',
+				$class
+			), 500);
+		}
+		
+		return $instance;
 	}
 	
 	/**

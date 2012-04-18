@@ -19,12 +19,12 @@ class ChartsDriversCompilerPass implements CompilerPassInterface
 {
 	public function process(ContainerBuilder $container)
 	{
-		if (false === $container->hasDefinition('leg_google_charts'))
+		if(false === $container->hasDefinition('leg_google_charts'))
 			return;
 
 		$definition = $container->getDefinition('leg_google_charts');
 
-		foreach ($container->findTaggedServiceIds('leg_google_charts.driver') as $id => $attributes)
+		foreach($container->findTaggedServiceIds('leg_google_charts.driver') as $id => $attributes)
 		{
 			$definition->addMethodCall('addDriver', array(new Reference($id)));
 		}

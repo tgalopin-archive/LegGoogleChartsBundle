@@ -12,8 +12,6 @@
 namespace Leg\GoogleChartsBundle\Drivers;
 
 use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Component\DependencyInjection\Exception\RuntimeException;
-
 use Leg\GoogleChartsBundle\Drivers\DriverInterface;
 
 /**
@@ -53,10 +51,10 @@ class XmlFileDriver implements DriverInterface
 		
 		if(! is_file($file))
 		{
-			throw new RuntimeException(sprintf(
+			throw new \InvalidArgumentException(sprintf(
 				'The file "%s" does not exist.',
-				$file
-			));
+				$fileName
+			), 500);
 		}
 		
 		$xmlDocument = new \SimpleXMLElement($file, null, true);
@@ -85,12 +83,20 @@ class XmlFileDriver implements DriverInterface
 			}
 		}
 		
-		if(empty($extends) OR ! class_exists($extends))
+		if(empty($extends))
 		{
-			throw new RuntimeException(sprintf('
-				The XML charts driver has not found "%s" in "%s"',
-				$extends, $file
-			));
+			throw new \RuntimeException(sprintf(
+				'The XML charts driver has not found extended chart class in "%s"',
+				$fileName
+			), 500);
+		}
+		
+		if(! class_exists($extends))
+		{
+			throw new \RuntimeException(sprintf(
+				'The XML charts driver has not found %s in "%s"',
+				$extends, $fileName
+			), 500);
 		}
 		
 		$chart = new $extends();

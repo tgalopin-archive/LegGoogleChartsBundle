@@ -13,7 +13,6 @@ namespace Leg\GoogleChartsBundle\Drivers;
 
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 
 use Leg\GoogleChartsBundle\Drivers\DriverInterface;
 
@@ -54,40 +53,30 @@ class YmlFileDriver implements DriverInterface
 		
 		if(! is_file($file))
 		{
-			throw new RuntimeException(sprintf(
+			throw new \InvalidArgumentException(sprintf(
 				'The file "%s" does not exist.',
-				$file
-			));
+				$fileName
+			), 500);
 		}
 		
 		$yamlParser = new Yaml();
 		$chartOptions = $yamlParser->parse($file);
 		$chartOptions = $chartOptions['parameters'];
 		
-		if(	! isset($chartOptions['width'])
-			OR ! isset($chartOptions['height'])
-			OR ! isset($chartOptions['datas']))
-		{
-			throw new RuntimeException(sprintf('
-				The YAML charts driver has not found width, height or datas in "%s"',
-				$file
-			));
-		}
-		
 		if(	! isset($chartOptions['extends']))
 		{
-			throw new RuntimeException(sprintf('
-				The YAML charts driver has not found extended chart class in "%s"',
-				$file
-			));
+			throw new \RuntimeException(sprintf(
+				'The YAML charts driver has not found extended chart class in "%s"',
+				$fileName
+			), 500);
 		}
 		
 		if(! class_exists($chartOptions['extends']))
 		{
-			throw new RuntimeException(sprintf('
-				The YAML charts driver has not found %s in "%s"',
-				$chartOptions['extends'], $file
-			));
+			throw new \RuntimeException(sprintf(
+				'The YAML charts driver has not found %s in "%s"',
+				$chartOptions['extends'], $fileName
+			), 500);
 		}
 				
 		$chart = new $chartOptions['extends']();
