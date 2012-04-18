@@ -6,11 +6,7 @@ What is LegGoogleChartsBundle ?
 
 LegGoogleChartsBundle is a bundle for the PHP 5.3 framework Symfony2.
 It allows developers to use easily the Google Charts API with PHP classes.
-
-Requirements
-------------
-
-This bundle require Symfony2.X.X
+It is fully tested with the PHPUnit framework.
 
 Installation
 ------------
@@ -27,12 +23,12 @@ git://github.com/tgalopin/LegGoogleChartsBundle.git
 https://github.com/tgalopin/LegGoogleChartsBundle/zipball/master
 ```
 
-And put the "Leg" directory in "vendor/bundles".
+And put the directory content in `vendor/bundles/Leg`.
 
 ### Step 2: Enable the bundle
 
 Add the following namespace entry to the `registerNamespaces` call
-in your autoloader
+in your autoloader:
 
 ``` php
 <?php
@@ -45,7 +41,7 @@ $loader->registerNamespaces(array(
 ));
 ```
 
-Then, register the bundle in your AppKernel:
+Then, register the bundle in your `AppKernel`:
 
 ``` php
 <?php
@@ -64,12 +60,4 @@ public function registerBundles()
 Documentation
 -------------
 
-To read the documentation, go to :
-
-1. http://titouangalopin.com/fr/leggooglechartsbundle/doc/index (in french)
-2. http://titouangalopin.com/en/leggooglechartsbundle/doc/index (in english)
-
-About LegGoogleChartsBundle
--------------
-
-LegGoogleChartsBundle is developped by Titouan Galopin.
+The documentation is not yet available, but will be soon published.
