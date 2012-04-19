@@ -3,3 +3,4 @@
 /vendor/doctrine-common
 /vendor/doctrine-dbal
 /vendor/symfony
+/vendor/twig
