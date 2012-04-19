@@ -168,6 +168,8 @@
     <parameter key="leg_google_charts.driver.php.class">Leg\GoogleChartsBundle\Drivers\PhpFileDriver</parameter>
     <parameter key="leg_google_charts.driver.xml.class">Leg\GoogleChartsBundle\Drivers\XmlFileDriver</parameter>
     <parameter key="leg_google_charts.driver.yml.class">Leg\GoogleChartsBundle\Drivers\YmlFileDriver</parameter>
+    <parameter key="leg_google_charts.cache_engine.enabled">false</parameter>
+    <parameter key="leg_google_charts.cache_engine.default_keep_time">1500</parameter>
     <parameter key="web_profiler.debug_toolbar.class">Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
@@ -866,6 +868,7 @@
       <argument>null</argument>
     </service>
     <service id="leg_google_charts" class="Leg\GoogleChartsBundle\Charts\ChartsManager">
+      <argument type="service" id="kernel"/>
       <call method="addDriver">
         <argument type="service" id="leg_google_charts.driver.php"/>
       </call>

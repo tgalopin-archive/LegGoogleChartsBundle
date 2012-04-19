@@ -18,3 +18,9 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+
+# LegGoogleCharts Configuration
+leg_google_charts:
+    cache_engine:
+        enabled: false
+        default_keep_time: 1500

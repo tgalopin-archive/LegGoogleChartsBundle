@@ -24,7 +24,7 @@ class LegGoogleChartsExtensionTest extends WebTestCase
 {
 	public function testCreate()
 	{
-		$manager = new ChartsManager();
+		$manager = new ChartsManager(parent::createKernel());
 	
 		$kernel = new \AppKernel('dev', true);
 		$kernel->boot();

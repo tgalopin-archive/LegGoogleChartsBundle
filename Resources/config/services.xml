@@ -12,8 +12,10 @@
         <parameter key="leg_google_charts.driver.yml.class">Leg\GoogleChartsBundle\Drivers\YmlFileDriver</parameter>
     </parameters>
 
-    <services>
-        <service id="leg_google_charts" class="%leg_google_charts.manager.class%" />
+    <services>        
+        <service id="leg_google_charts" class="%leg_google_charts.manager.class%">
+            <argument type="service" id="kernel" />
+        </service>
         
         <service id="leg_google_charts.twig.extension" class="%leg_google_charts.twig.extension.class%">
             <argument type="service" id="leg_google_charts" />

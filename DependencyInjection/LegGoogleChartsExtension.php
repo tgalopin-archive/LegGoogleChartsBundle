@@ -24,5 +24,15 @@ class LegGoogleChartsExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
+        
+        $container->setParameter(
+	        'leg_google_charts.cache_engine.enabled',
+	        $config['cache_engine']['enabled']
+        );
+        
+        $container->setParameter(
+        	'leg_google_charts.cache_engine.default_keep_time',
+        	$config['cache_engine']['default_keep_time']
+        );
     }
 }

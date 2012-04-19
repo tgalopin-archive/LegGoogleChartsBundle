@@ -24,7 +24,7 @@ class ChartsManagerTest extends WebTestCase
 {
 	public function testCreate()
 	{
-		$manager = new ChartsManager();
+		$manager = new ChartsManager(parent::createKernel());
 		
 		return $manager;
 	}
@@ -34,6 +34,8 @@ class ChartsManagerTest extends WebTestCase
 	 */
 	public function testAddDriver(ChartsManager $manager)
 	{
+		$kernel = parent::createKernel();
+		
 		$driver = new PhpFileDriver(parent::createKernel());
 		
 		$manager->addDriver($driver);
@@ -80,7 +82,7 @@ class ChartsManagerTest extends WebTestCase
 	
 	public function testGetChart()
 	{
-		$manager = new ChartsManager();
+		$manager = new ChartsManager(parent::createKernel());
 		
 		$kernel = new \AppKernel('dev', true);
 		$kernel->boot();
@@ -106,7 +108,7 @@ class ChartsManagerTest extends WebTestCase
 	 */
 	public function testGetUnsupportedChart()
 	{
-		$manager = new ChartsManager();
+		$manager = new ChartsManager(parent::createKernel());
 		
 		$chart = $manager->get('LegGoogleChartsBundle:PhpValidChartFile.php');
 	}

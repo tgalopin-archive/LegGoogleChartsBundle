@@ -593,7 +593,7 @@ class embededKernelDevDebugProjectContainer extends Container
      */
     protected function getLegGoogleChartsService()
     {
-        $this->services['leg_google_charts'] = $instance = new \Leg\GoogleChartsBundle\Charts\ChartsManager();
+        $this->services['leg_google_charts'] = $instance = new \Leg\GoogleChartsBundle\Charts\ChartsManager($this->get('kernel'));
 
         $instance->addDriver($this->get('leg_google_charts.driver.php'));
         $instance->addDriver($this->get('leg_google_charts.driver.xml'));
@@ -1456,6 +1456,8 @@ class embededKernelDevDebugProjectContainer extends Container
             'leg_google_charts.driver.php.class' => 'Leg\\GoogleChartsBundle\\Drivers\\PhpFileDriver',
             'leg_google_charts.driver.xml.class' => 'Leg\\GoogleChartsBundle\\Drivers\\XmlFileDriver',
             'leg_google_charts.driver.yml.class' => 'Leg\\GoogleChartsBundle\\Drivers\\YmlFileDriver',
+            'leg_google_charts.cache_engine.enabled' => false,
+            'leg_google_charts.cache_engine.default_keep_time' => 1500,
             'web_profiler.debug_toolbar.class' => 'Symfony\\Bundle\\WebProfilerBundle\\EventListener\\WebDebugToolbarListener',
             'web_profiler.debug_toolbar.intercept_redirects' => false,
             'web_profiler.debug_toolbar.mode' => 2,

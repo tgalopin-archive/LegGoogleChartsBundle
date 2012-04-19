@@ -25,11 +25,18 @@ class ChartsManager implements ChartsManagerInterface
 	protected $drivers;
 	
 	/**
+	 * Symfony2 kernel
+	 * @var KernelInterface
+	 */
+	protected $kernel;
+	
+	/**
 	 * @param KernelInterface $kernel
 	 */
-	public function __construct()
+	public function __construct(KernelInterface $kernel)
 	{
 		$this->drivers = new ArrayCollection();
+		$this->kernel = $kernel;
 	}
 	
 	/**
@@ -113,7 +120,7 @@ class ChartsManager implements ChartsManagerInterface
 	 */
 	public function build(ChartInterface $chart)
 	{
-		return $chart->build();
+		return $chart->_build();
 	}
 	
 	/**
