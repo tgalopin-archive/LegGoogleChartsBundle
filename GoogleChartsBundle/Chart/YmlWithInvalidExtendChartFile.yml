@@ -1,5 +1,0 @@
-parameters:
-    extends: Leg\GoogleChartsBundle\Charts\Gallery\InvalidChart
-    width: 200
-    height: 200
-    datas: [200, 100, 50]
