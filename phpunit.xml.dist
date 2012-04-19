@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit bootstrap="./GoogleChartsBundle/Tests/bootstrap.php" colors="true">
+<phpunit bootstrap="./Tests/bootstrap.php" colors="true">
 
     <testsuites>
         <testsuite name="LegGoogleChartsBundle test suite">
-            <directory suffix="Test.php">./GoogleChartsBundle/Tests</directory>
+            <directory suffix="Test.php">./Tests</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist>
-            <directory>./GoogleChartsBundle</directory>
+            <directory>./</directory>
             <exclude>
-                <directory>./GoogleChartsBundle/Resources</directory>
-                <directory>./GoogleChartsBundle/Tests</directory>
-                <directory>./GoogleChartsBundle/vendor</directory>
+                <directory>./Resources</directory>
+                <directory>./Tests</directory>
+                <directory>./vendor</directory>
             </exclude>
         </whitelist>
     </filter>
