@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit bootstrap="./GoogleChartsBundle/Tests/bootstrap.php" colors="true">
+
+    <testsuites>
+        <testsuite name="LegGoogleChartsBundle test suite">
+            <directory suffix="Test.php">./GoogleChartsBundle/Tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>./GoogleChartsBundle</directory>
+            <exclude>
+                <directory>./GoogleChartsBundle/Resources</directory>
+                <directory>./GoogleChartsBundle/Tests</directory>
+                <directory>./GoogleChartsBundle/vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>
