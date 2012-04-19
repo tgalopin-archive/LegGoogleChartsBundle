@@ -17,6 +17,9 @@ use Symfony\Component\ClassLoader\UniversalClassLoader;
 $loader = new UniversalClassLoader();
 $loader->registerNamespaces(array(
     'Symfony'                => array($vendorDir.'/symfony/src', $vendorDir.'/bundles'),
+    'Doctrine\\Common'       => $vendorDir.'/doctrine-common/lib',
+    'Doctrine\\DBAL'         => $vendorDir.'/doctrine-dbal/lib',
+    'Doctrine'               => $vendorDir.'/doctrine/lib',
 ));
 $loader->register();
 
