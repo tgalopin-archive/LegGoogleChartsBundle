@@ -3,7 +3,7 @@ Chart types and their properties
 
 For more informations and attributes, see : `http://code.google.com/apis/chart/image/`
 
-### BasicChart :
+### BaseChart :
 
 - type [string] : Type (Bar, Line, ...)
 - width [integer] : Width

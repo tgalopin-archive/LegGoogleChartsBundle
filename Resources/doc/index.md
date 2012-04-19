@@ -113,3 +113,4 @@ of the bundle.
 The following documents are available:
 
 - [Using the charts](using.md)
+- [Chart types and their properties](types.md)
