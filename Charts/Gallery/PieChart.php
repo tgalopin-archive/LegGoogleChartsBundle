@@ -22,9 +22,9 @@ class PieChart extends BaseChart
 	 */
 	protected $rotation;
 	
-	public function build()
+	public function _build()
 	{
-		$url = parent::build();
+		$url = parent::_build();
 		
 		$url .= '&chp='.$this->rotation;
 		

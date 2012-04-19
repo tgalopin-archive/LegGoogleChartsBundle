@@ -358,7 +358,7 @@ class BaseChartTest extends \PHPUnit_Framework_TestCase
 				->setType('bhs')
 				->setDatas(array(32, 15, 17));
 		
-		$chart->build();
+		$chart->_build();
 	}
 	
 	/**
@@ -374,7 +374,7 @@ class BaseChartTest extends \PHPUnit_Framework_TestCase
 				->setHeight(200)
 				->setDatas(array(32, 15, 17));
 		
-		$chart->build();
+		$chart->_build();
 	}
 	
 	/**
@@ -390,7 +390,7 @@ class BaseChartTest extends \PHPUnit_Framework_TestCase
 				->setType('bhs')
 				->setDatas(array(32, 15, 17));
 		
-		$chart->build();
+		$chart->_build();
 	}
 	
 	/**
@@ -406,7 +406,7 @@ class BaseChartTest extends \PHPUnit_Framework_TestCase
 				->setType('bhs')
 				->setDatas(array(32, 15, 17));
 		
-		$chart->build();
+		$chart->_build();
 	}
 	
 	/**
@@ -422,6 +422,6 @@ class BaseChartTest extends \PHPUnit_Framework_TestCase
 				->setHeight(200)
 				->setType('bhs');
 		
-		$chart->build();
+		$chart->_build();
 	}
 }

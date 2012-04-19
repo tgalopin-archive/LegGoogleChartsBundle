@@ -132,7 +132,7 @@ class BaseChart implements ChartInterface
 	 * Build and return URI
 	 * @return string
 	 */
-	public function build()
+	public function _build()
 	{
 		if(empty($this->type))
 			throw new \InvalidArgumentException('A chart must have a type.', 500);

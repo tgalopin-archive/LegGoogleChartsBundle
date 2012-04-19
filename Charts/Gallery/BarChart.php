@@ -50,14 +50,14 @@ class BarChart extends BaseChart
 	}
 	
 	/** 
-	 * @see Leg\GoogleChartsBundle\Charts\Model.AbstractChart::build()
+	 * @see Leg\GoogleChartsBundle\Charts\BaseChart::_build()
 	 */
-	public function build()
+	public function _build()
 	{
 		if($this->axis->isEmpty())
 			throw new \InvalidArgumentException('A bar chart must have axis.', 500);
 		
-		$url = parent::build();
+		$url = parent::_build();
 		
 		$url .= '&chxt='.implode(',', $this->axis->toArray());
 		

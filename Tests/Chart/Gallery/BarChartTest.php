@@ -99,7 +99,7 @@ class BarChartTest extends \PHPUnit_Framework_TestCase
 				->setDatas(array(32, 15, 17))
 				->setAxis(array('x', 'y'));
 		
-		$chart->build();
+		$chart->_build();
 	}
 	
 	/**
@@ -116,6 +116,6 @@ class BarChartTest extends \PHPUnit_Framework_TestCase
 				->setDatas(array(32, 15, 17))
 				->setAxis(array());
 		
-		$chart->build();
+		$chart->_build();
 	}
 }

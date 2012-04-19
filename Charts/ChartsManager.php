@@ -108,6 +108,15 @@ class ChartsManager implements ChartsManagerInterface
 	}
 	
 	/**
+	 * Build a chart. This method is used for cache.
+	 * @param ChartInterface $chart
+	 */
+	public function build(ChartInterface $chart)
+	{
+		return $chart->build();
+	}
+	
+	/**
 	 * Display a chart
 	 * @param string $menu
 	 */
@@ -115,7 +124,7 @@ class ChartsManager implements ChartsManagerInterface
 	{
 		$chart = $this->get($resource);
 
-		return '<img src="'.$chart->build().
+		return '<img src="'.$this->build($chart).
 				'" alt="'.$resource.
 				'" title="'.$resource.
 				'" id="'.strtolower($resource).

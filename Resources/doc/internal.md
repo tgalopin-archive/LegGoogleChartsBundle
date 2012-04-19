@@ -61,7 +61,7 @@ class DefaultController extends Controller
 		    	->setHeight(200)
 		    	->setDatas(array(200, 100, 50));
     	
-    	$url = $chart->build();
+    	$url = $this->get('leg_google_charts')->build($chart);
     	
         return $this->render('SymfonyMainBundle:Default:index.html.twig', array(
         	'chart_url' => $url

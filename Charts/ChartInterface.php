@@ -30,7 +30,7 @@ interface ChartInterface
 	 * Build and return URI
 	 * @return string
 	 */
-	public function build();
+	public function _build();
 	
 	/**
 	 * @return string

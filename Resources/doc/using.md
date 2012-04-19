@@ -34,7 +34,7 @@ class DefaultController extends Controller
 		    	->setHeight(200)
 		    	->setDatas(array(200, 100, 50));
     	
-    	$url = $chart->build();
+    	$url = $this->get('leg_google_charts')->build($chart);
     	
         return $this->render('SymfonyMainBundle:Default:index.html.twig', array(
         	'chart_url' => $url
@@ -119,7 +119,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-    	$chartsManger = $this->get('leg_google_charts');
+    	$chartsManager = $this->get('leg_google_charts');
     	
     	$chart = $chartsManger->get('SymfonyMainBundle:ExampleChart.php');
     	
@@ -131,7 +131,7 @@ class DefaultController extends Controller
 		    	->setLabels(array(/* ... */));
     	
         return $this->render('SymfonyMainBundle:Default:index.html.twig', array(
-        	'chart_url' => $chart->build()
+        	'chart_url' => $chartsManager->build($chart)
         ));
     }
 }
@@ -143,6 +143,10 @@ class DefaultController extends Controller
 {# Only get the chart #}
 {% set chart = leg_google_charts_get('SymfonyMainBundle:ExampleChart.php') %}
 
+{{ chartsManager.build(chart) }}
+```
+
+``` twig
 {# Display the chart #}
 {{ leg_google_charts_render('SymfonyMainBundle:ExampleChart.php') }}
 ```
