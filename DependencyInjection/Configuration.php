@@ -43,7 +43,7 @@ class Configuration implements ConfigurationInterface
 					->children()
 						->booleanNode('enabled')->defaultFalse()->end()
               			->scalarNode('default_keep_time')
-              				->defaultValue('3600')
+              				->defaultValue(3600)
 				            ->validate()
 				                ->ifTrue()
 				                ->thenInvalid('The propel model class must be defined by using the "propel_user_class" key.')

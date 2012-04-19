@@ -68,7 +68,7 @@ class CacheEngine
 	 * @param integer $keepTime
 	 */
 	public function put(ChartInterface $chart, $keepTime)
-	{
+	{		
 		$filename = $this->hash($chart->_build());
 		
 		file_put_contents(

@@ -136,6 +136,8 @@ class ChartsManager implements ChartsManagerInterface
 			$cacheEngine = $this->kernel->getContainer()
 										->get('leg_google_charts.cache_engine');
 			
+			$cacheEngine->boot();
+			
 			if(! $cacheEngine->has($chart))
 				$cacheEngine->put($chart, $keepTime);
 			
