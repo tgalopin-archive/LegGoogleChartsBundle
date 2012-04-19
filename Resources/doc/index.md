@@ -107,11 +107,12 @@ public function registerBundles()
 ### Next Steps
 
 Now that you have completed the basic installation and configuration of the
-FOSUserBundle, you are ready to learn about more advanced features and usages
+LegGoogleChartsBundle, you are ready to learn about more advanced features and usages
 of the bundle.
 
 The following documents are available:
 
 - [Using the charts](using.md)
 - [Chart types and their properties](types.md)
+- [Using cache with the CacheEngine](cache.md)
 - [Avanced usage of LegGoogleChartsBundle](internal.md)

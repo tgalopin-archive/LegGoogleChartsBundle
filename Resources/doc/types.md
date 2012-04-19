@@ -63,3 +63,11 @@ For more informations and attributes, see : `http://code.google.com/apis/chart/i
 ### ScatterChart [extends BasicChart]
 
 ### VennChart [extends BasicChart]
+
+
+### Next Steps
+
+The following documents are available:
+
+- [Using cache with the CacheEngine](cache.md)
+- [Avanced usage of LegGoogleChartsBundle](internal.md)

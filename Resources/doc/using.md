@@ -151,3 +151,10 @@ class DefaultController extends Controller
 {{ leg_google_charts_render('SymfonyMainBundle:ExampleChart.php') }}
 ```
 
+### Next Steps
+
+The following documents are available:
+
+- [Chart types and their properties](types.md)
+- [Using cache with the CacheEngine](cache.md)
+- [Avanced usage of LegGoogleChartsBundle](internal.md)
