@@ -18,7 +18,7 @@ Features include:
 **Note:** This bundle does *not* create images alone : it use GoogleChartsImage tool.
 Therefore you can not display charts without an active internet connection.
 
-[![Build Status](https://secure.travis-ci.org/tgalopin/LegGoogleChartsBundle.png)](http://travis-ci.org/tgalopin/LegGoogleChartsBundle)
+[![Build Status](https://secure.travis-ci.org/tgalopin/LegGoogleChartsBundle.png?branch=master)](http://travis-ci.org/tgalopin/LegGoogleChartsBundle)
 
 Documentation
 -------------
