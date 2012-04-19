@@ -1,10 +1,20 @@
 <?php
+
+/*
+ * This file is part of the LegGoogleChartsBundle package.
+ *
+ * (c) Titouan Galopin <http://titouangalopin.com/>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Leg\GoogleChartsBundle\Twig;
 
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 use Symfony\Component\HttpKernel\KernelInterface;
 
-use Leg\GoogleChartsBundle\Charts\ChartsManager;
+use Leg\GoogleChartsBundle\Charts\ChartsManagerInterface;
 
 class LegGoogleChartsExtension extends \Twig_Extension
 {
@@ -15,9 +25,9 @@ class LegGoogleChartsExtension extends \Twig_Extension
 	protected $charts_manager;
 	
 	/**
-	 * @param ChartsManager $charts_manager
+	 * @param ChartsManagerInterface $charts_manager
 	 */
-	public function __construct(ChartsManager $charts_manager)
+	public function __construct(ChartsManagerInterface $charts_manager)
 	{
 		$this->charts_manager = $charts_manager;
 	}

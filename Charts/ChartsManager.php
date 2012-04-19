@@ -16,7 +16,7 @@ use Leg\GoogleChartsBundle\Drivers\DriverInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpKernel\KernelInterface;
 
-class ChartsManager
+class ChartsManager implements ChartsManagerInterface
 {
 	/**
 	 * Loaded drivers
