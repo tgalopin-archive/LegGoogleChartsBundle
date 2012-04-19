@@ -6,6 +6,7 @@ Using LegGoogleChartsBundle
 Before all, you must choose a chart type: see [the core types](types.md).
 
 To build a chart, you have two ways:
+
 - Using the core gallery
 - Using external files
 

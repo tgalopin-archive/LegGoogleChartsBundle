@@ -114,3 +114,4 @@ The following documents are available:
 
 - [Using the charts](using.md)
 - [Chart types and their properties](types.md)
+- [Avanced usage of LegGoogleChartsBundle](internal.md)
