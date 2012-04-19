@@ -13,6 +13,7 @@ Features include:
 - Charts Gallery to create charts very easily
 - Charts models support : create charts is simplified by the externalisation of the code
 - Drivers system to add your own charts files formats
+- CacheEngine to very easily use cache on your charts
 - Unit tested
 
 **Note:** This bundle does *not* create images alone : it use GoogleChartsImage tool.

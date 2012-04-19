@@ -4,3 +4,4 @@
 /vendor/doctrine-dbal
 /vendor/symfony
 /vendor/twig
+/Tests/embededKernel/cache/dev
