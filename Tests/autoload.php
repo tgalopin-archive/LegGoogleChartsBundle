@@ -29,8 +29,6 @@ spl_autoload_register(function($class)
 	    {
 	        $path = __DIR__.'/../'.implode('/', array_slice(explode('\\', $class), 2)).'.php';
 	        
-	        var_dump($path);
-	        
 	        if (!stream_resolve_include_path($path))
 	            return false;
 	        
