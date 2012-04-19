@@ -6,14 +6,19 @@
 
     <parameters>
         <parameter key="leg_google_charts.manager.class">Leg\GoogleChartsBundle\Charts\ChartsManager</parameter>
+        <parameter key="leg_google_charts.cache_engine.class">Leg\GoogleChartsBundle\Cache\CacheEngine</parameter>
         <parameter key="leg_google_charts.twig.extension.class">Leg\GoogleChartsBundle\Twig\LegGoogleChartsExtension</parameter>
         <parameter key="leg_google_charts.driver.php.class">Leg\GoogleChartsBundle\Drivers\PhpFileDriver</parameter>
         <parameter key="leg_google_charts.driver.xml.class">Leg\GoogleChartsBundle\Drivers\XmlFileDriver</parameter>
         <parameter key="leg_google_charts.driver.yml.class">Leg\GoogleChartsBundle\Drivers\YmlFileDriver</parameter>
     </parameters>
 
-    <services>        
+    <services>
         <service id="leg_google_charts" class="%leg_google_charts.manager.class%">
+            <argument type="service" id="kernel" />
+        </service>
+        
+        <service id="leg_google_charts.cache_engine" class="%leg_google_charts.cache_engine.class%">
             <argument type="service" id="kernel" />
         </service>
         

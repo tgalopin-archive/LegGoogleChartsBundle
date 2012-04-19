@@ -118,8 +118,30 @@ class ChartsManager implements ChartsManagerInterface
 	 * Build a chart. This method is used for cache.
 	 * @param ChartInterface $chart
 	 */
-	public function build(ChartInterface $chart)
+	public function build(ChartInterface $chart, $keepTime = null)
 	{
+		$cacheEngineIsEnabled = $this->kernel->getContainer()->getParameter(
+			'leg_google_charts.cache_engine.enabled'
+		);
+		
+		if($cacheEngineIsEnabled)
+		{
+			$defaultKeepTime = $this->kernel->getContainer()->getParameter(
+				'leg_google_charts.cache_engine.default_keep_time'
+			);
+			
+			if(! is_int($keepTime))
+				$keepTime = $defaultKeepTime;
+			
+			$cacheEngine = $this->kernel->getContainer()
+										->get('leg_google_charts.cache_engine');
+			
+			if(! $cacheEngine->has($chart))
+				$cacheEngine->put($chart, $keepTime);
+			
+			return $cacheEngine->get($chart);
+		}
+		
 		return $chart->_build();
 	}
 	
