@@ -36,9 +36,7 @@ All the installation instructions are located in [documentation](https://github.
 License
 -------
 
-This bundle is under the MIT license. See the complete license in the bundle:
-
-    [Resources/meta/LICENSE.md](https://github.com/tgalopin/LegGoogleChartsBundle/blob/master/Resources/meta/LICENSE.md)
+This bundle is under the Creative Commons BY-NC 3.0 license. See the complete license in the bundle: [Resources/meta/LICENSE.md](https://github.com/tgalopin/LegGoogleChartsBundle/blob/master/Resources/meta/LICENSE.md)
 
 About
 -----
