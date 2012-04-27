@@ -13,6 +13,7 @@ namespace Leg\GoogleChartsBundle\Cache;
 
 use Leg\GoogleChartsBundle\Charts\ChartInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Component\DependencyInjection\Exception\InactiveScopeException;
 
 /**
  * CacheEngine is an engine to cache the charts.
@@ -41,14 +42,19 @@ class CacheEngine
 	 * @param KernelInterface $kernel
 	 */
 	public function __construct(KernelInterface $kernel)
-	{		
+	{
 		$this->public_cache_dir = $kernel->getRootDir().'/../web/bundles/leg_google_charts';
 		$this->internal_cache_dir = $kernel->getRootDir().'/cache/leg_google_charts';
 		
-		$this->asset_cache_dir = $kernel->getContainer()
-										->get('twig')
-										->getExtension('assets')
-										->getAssetUrl('bundles/leg_google_charts');
+		try
+		{
+			$this->asset_cache_dir = $kernel->getContainer()
+											->get('twig')
+											->getExtension('assets')
+											->getAssetUrl('bundles/leg_google_charts');
+		}
+		catch(InactiveScopeException $exception)
+		{}
 	}
 	
 	/**
@@ -192,6 +198,33 @@ class CacheEngine
 	public function getAssetCacheDir()
 	{
 	    return $this->asset_cache_dir;
+	}
+	
+	/**
+	 * Sets the public cache directory
+	 * @param $public_cache_dir string
+	 */
+	public function setPublicCacheDir($public_cache_dir)
+	{
+	    $this->public_cache_dir = (string) $public_cache_dir;
+	}
+	
+	/**
+	 * Sets the internal cache directory
+	 * @param $internal_cache_dir string
+	 */
+	public function setInternalCacheDir($internal_cache_dir)
+	{
+	    $this->internal_cache_dir = (string) $internal_cache_dir;
+	}
+	
+	/**
+	 * Sets the public cache directory in asset version
+	 * @param $asset_cache_dir string
+	 */
+	public function setAssetCacheDir($asset_cache_dir)
+	{
+	    $this->asset_cache_dir = (string) $asset_cache_dir;
 	}
 	
 	/**

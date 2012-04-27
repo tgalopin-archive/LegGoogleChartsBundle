@@ -26,7 +26,8 @@ class PieChart extends BaseChart
 	{
 		$url = parent::_build();
 		
-		$url .= '&chp='.$this->rotation;
+		if(! empty($this->rotation))
+			$url .= '&chp='.$this->rotation;
 		
 		return $url;
 	}
