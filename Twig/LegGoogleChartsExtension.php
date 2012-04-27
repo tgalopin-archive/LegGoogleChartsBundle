@@ -11,6 +11,8 @@
 
 namespace Leg\GoogleChartsBundle\Twig;
 
+use Leg\GoogleChartsBundle\Charts\ChartInterface;
+
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 use Symfony\Component\HttpKernel\KernelInterface;
 
@@ -49,6 +51,8 @@ class LegGoogleChartsExtension extends \Twig_Extension
 	{
 		return array(
 			'leg_google_charts_get' => new \Twig_Function_Method($this, 'get'),
+			'leg_google_charts_build' => new \Twig_Function_Method($this, 'build',
+										array('is_safe' => array('html'))),
 			'leg_google_charts_render' => new \Twig_Function_Method($this, 'render',
 										array('is_safe' => array('html'))),
 		);
@@ -61,6 +65,15 @@ class LegGoogleChartsExtension extends \Twig_Extension
 	public function get($name)
 	{
 		return $this->charts_manager->get($name);
+	}
+	
+	/**
+	 * Display a chart
+	 * @param string $menu
+	 */
+	public function build(ChartInterface $chart)
+	{
+		return $this->charts_manager->build($chart);
 	}
 	
 	/**

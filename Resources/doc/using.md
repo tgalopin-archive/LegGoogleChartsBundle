@@ -143,7 +143,7 @@ class DefaultController extends Controller
 {# Only get the chart #}
 {% set chart = leg_google_charts_get('SymfonyMainBundle:ExampleChart.php') %}
 
-{{ chartsManager.build(chart) }}
+{{ leg_google_charts_build(chart) }}
 ```
 
 ``` twig
