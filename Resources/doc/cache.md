@@ -1,7 +1,7 @@
 Using cache with the CacheEngine
 ================================
 
-The GoogleChartsImage tool is very cool and fasyt, but for some reason, you may
+The Google ChartsImage tool is very cool and fast, but for some reason, you may
 want to cache the chart images. Fortunately, the LegGoogleChartsBundle provides
 a useful CacheEngine to do that for you.
 
