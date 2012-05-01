@@ -11,15 +11,16 @@
 
 namespace Leg\GoogleChartsBundle\Tests\Cache;
 
-use Leg\GoogleChartsBundle\Charts\Gallery\PieChart;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+use Leg\GoogleChartsBundle\Charts\Gallery\PieChart;
 use Leg\GoogleChartsBundle\Charts\Gallery\BarChart;
 use Leg\GoogleChartsBundle\Cache\CacheEngine;
 
 /**
  * CacheEngine is an engine to cache the charts.
  */
-class CacheEngineTest extends \PHPUnit_Framework_TestCase
+class CacheEngineTest extends WebTestCase
 {	
 	public function testCreate()
 	{

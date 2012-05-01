@@ -11,9 +11,11 @@
 
 namespace Leg\GoogleChartsBundle\Tests\Charts\Gallery\Bar;
 
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+
 use Leg\GoogleChartsBundle\Charts\Gallery\Bar\VerticalStackedChart;
 
-class VerticalStackedChartTest extends \PHPUnit_Framework_TestCase
+class VerticalStackedChartTest extends WebTestCase
 {
 	public function testSetOptions()
 	{

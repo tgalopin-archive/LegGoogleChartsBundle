@@ -11,9 +11,11 @@
 
 namespace Leg\GoogleChartsBundle\Tests\Charts\Gallery;
 
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+
 use Leg\GoogleChartsBundle\Charts\Gallery\BarChart;
 
-class BarChartTest extends \PHPUnit_Framework_TestCase
+class BarChartTest extends WebTestCase
 {
 	public function testSetOptions()
 	{
