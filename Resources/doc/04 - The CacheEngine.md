@@ -77,7 +77,7 @@ The CacheEngine is the base of the system. It has four main methods :
 The `put()` method build the chart to get the Google URL. It hash this URL in md5
 and keep the 10 first characters of this hash. Then it save the chart image from
 Google in the public accessible directory `/web/bundles/leg_google_charts` with
-as name the hash. After that, it save another file named with the hash in the
+the hash as name. After that, it save another file named with the hash in the
 public inaccessible directory `/app/cache/leg_google_charts` with as content
 the creation time of the chart.
 

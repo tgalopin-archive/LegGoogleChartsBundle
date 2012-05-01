@@ -73,13 +73,13 @@ class DefaultController extends Controller
 ## Create your own chart driver
 
 LegGoogleChartsBundle provides by default some drivers that are used to 
-translate files in charts. There is in the core three drivers:
+translate files in charts. There is three drivers in the core:
 
 - `PhpFileDriver` that understand PHP
 - `XmlFileDriver` that understand XML
 - `YmlFileDriver` that understand YAML
 
-You may need/want to use another format: you can do that very easily.
+You may need/want to use another format: don't worry, it's very easy.
 
 All the LegGoogleChartsBundle drivers are stored in the directory `Drivers` and
 are loaded by the `ChartsDriversCompilerPass`. So there are all services with the
