@@ -56,6 +56,7 @@ can understand.
 You can use:
 
 - PHP:
+
 ``` php
 <?php
 // src/Symfony/MainBundle/Chart/ExampleChart.php
@@ -78,6 +79,7 @@ class ExampleChart extends BarChart
 ```
 
 - XML:
+
 ``` xml
 <?xml version="1.0" encoding="UTF-8" ?>
 
@@ -94,6 +96,7 @@ class ExampleChart extends BarChart
 ```
 
 - YAML:
+
 ``` yml
 parameters:
     extends: Leg\GoogleChartsBundle\Charts\Gallery\BarChart
