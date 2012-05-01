@@ -110,6 +110,7 @@ parameters:
 After that creation, you can load the file from a controller or directly from Twig.
 
 - In a Controller:
+
 ``` php
 <?php
 // src/Symfony/MainBundle/Controller/DefaultController
@@ -142,6 +143,7 @@ class DefaultController extends Controller
 ```
 
 - In a View:
+
 ``` twig
 {# Only get the chart #}
 {% set chart = leg_google_charts_get('SymfonyMainBundle:ExampleChart.php') %}
