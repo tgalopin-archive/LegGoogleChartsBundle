@@ -24,8 +24,7 @@ Therefore you can not display charts without an active internet connection.
 Documentation
 -------------
 
-The bulk of the documentation is stored in the `Resources/doc/index.md`
-file in this bundle:
+The bulk of the documentation is stored in the `Resources/doc/index.md` file in this bundle:
 
 [Read the Documentation](https://github.com/tgalopin/LegGoogleChartsBundle/blob/master/Resources/doc/01 - Getting Started.md)
 
