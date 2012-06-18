@@ -125,7 +125,7 @@ class DefaultController extends Controller
     {
     	$chartsManager = $this->get('leg_google_charts');
     	
-    	$chart = $chartsManger->get('SymfonyMainBundle:ExampleChart.php');
+    	$chart = $chartsManager->get('SymfonyMainBundle:ExampleChart.php');
     	
     	/*
     	 * Set datas, labels, ...
