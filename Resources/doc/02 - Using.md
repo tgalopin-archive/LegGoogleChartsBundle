@@ -53,6 +53,8 @@ can understand.
 
 **a) Create the file**
 
+All the files must be stored in the "App/YourBundle/Chart" directory to be found by the ChartManager.
+
 You can use:
 
 - PHP:
