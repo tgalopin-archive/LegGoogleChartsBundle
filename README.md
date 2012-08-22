@@ -1,6 +1,10 @@
 LegGoogleChartsBundle
 =====================
 
+> **Note**:
+> The GoogleChartsImage API is now obsolete and I am writing a new version of the bundle, based on Google Charts
+> tools (in Javascript), the official and LTS API. Therefore, you can use this bundle, but its development is stopped. 
+
 What is LegGoogleChartsBundle ?
 -------------------------------
 
