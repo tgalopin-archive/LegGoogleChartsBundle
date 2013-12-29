@@ -1,24 +1,28 @@
 {
     "name": "leg/googlecharts-bundle",
-    "type": "symfony-bundle",
-    "description": "Symfony2 LegGoogleChartsBundle for Google Image",
-    "keywords": ["Charts creation"],
-    "homepage": "http://titouangalopin.com/",
-    "license": "Creative Commons BY-NC 3.0",
+	"type": "symfony-bundle",
+	"description": "Symfony2 bundle that intregrate LegGCharts, a PHP 5.3 library to generate charts using GoogleChartsImage",
+    "keywords": ["charts", "generation", "bundle", "image", "google"],
+    "homepage": "http://titouangalopin.com",
+	"license": "BSD-3-Clause",
     "authors": [
-        {
-            "name": "Titouan Galopin",
-            "email": "galopintitouan@gmail.com"
-        }
+	    {
+		    "name": "Titouan Galopin",
+		    "email": "galopintitouan@gmail.com"
+	    }
     ],
-    "require": {
-        "php": ">=5.3.2",
-        "symfony/framework-bundle": "2.*",
-        "doctrine/common": "2.*"
-    },
-    "suggest": {},
+	"require": {
+		"php": ">=5.3.2",
+		"leg/googlecharts": "1.*@dev",
+		"symfony/framework-bundle": "~2.1",
+		"symfony/security-bundle": "~2.1"
+	},
+	"require-dev": {
+		"twig/twig": "~1.5"
+	},
     "autoload": {
-        "psr-0": { "Leg\\GoogleChartsBundle": "" }
-    },
-    "target-dir": "Leg/GoogleChartsBundle"
+        "psr-0" : {
+            "Leg\\GoogleChartsBundle" : "src/"
+        }
+    }
 }

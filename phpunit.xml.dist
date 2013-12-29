@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit bootstrap="./Tests/bootstrap.php" colors="false">
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="false"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="false"
+         bootstrap="test/bootstrap.php"
+>
+  <php>
+    <server name="KERNEL_DIR" value="./test/Kernel" />
+  </php>
 
-    <testsuites>
-        <testsuite name="LegGoogleChartsBundle test suite">
-            <directory suffix="Test.php">./Tests</directory>
-        </testsuite>
-    </testsuites>
+  <testsuites>
+    <testsuite name="LegGoogleChartsBundle Test Suite">
+      <directory>./test/Leg</directory>
+    </testsuite>
+  </testsuites>
 
-    <php>
-        <server name="KERNEL_DIR" value="./Tests/embededKernel" />
-    </php>
-    
-    <filter>
-        <whitelist>
-            <directory>./</directory>
-            <exclude>
-                <directory>./Resources</directory>
-                <directory>./Tests</directory>
-                <directory>./vendor</directory>
-            </exclude>
-        </whitelist>
-    </filter>
+  <filter>
+    <whitelist>
+      <directory suffix=".php">./src/Leg/</directory>
+    </whitelist>
+  </filter>
 </phpunit>

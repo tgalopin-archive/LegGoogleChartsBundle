@@ -1,7 +1,3 @@
-
-/vendor/doctrine
-/vendor/doctrine-common
-/vendor/doctrine-dbal
-/vendor/symfony
-/vendor/twig
-/Tests/embededKernel/cache/dev
+.idea/
+composer.lock
+vendor/
