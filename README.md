@@ -1,7 +1,7 @@
 LegGoogleChartsBundle
 =====================
 
-[![Build Status](https://travis-ci.org/tgalopin/LegGoogleCharts.png?branch=master)](https://travis-ci.org/tgalopin/LegGoogleCharts)
+[![Build Status](https://travis-ci.org/tgalopin/LegGoogleChartsBundle.png?branch=master)](https://travis-ci.org/tgalopin/LegGoogleChartsBundle)
 
 What is LegGoogleChartsBundle ?
 -------------------------------
